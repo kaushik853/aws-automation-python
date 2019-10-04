@@ -1,1 +1,1 @@
-This repo is for a project aws with boto3 for automating s3 access
+This repo is for aws with boto3 for automating s3 access
