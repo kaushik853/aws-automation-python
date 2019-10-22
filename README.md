@@ -6,5 +6,5 @@ This script will sync a local directory to an s3 bucket and optionally
 configure the Route53 and cloudfront as well
 
 ## Features
-List buckets
-List objects of a  bucket
+- List buckets
+- List objects of a  bucket
