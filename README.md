@@ -8,3 +8,4 @@ configure the Route53 and cloudfront as well
 ## Features
 - List buckets
 - List objects of a  bucket
+- Create and configure s3 bucket
