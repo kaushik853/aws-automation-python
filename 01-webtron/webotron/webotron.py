@@ -47,12 +47,12 @@ def setup_bucket(bucket):
       "Effect":"Allow",
       "Principal": "*",
           "Action":["s3:GetObject"],
-          "Resource":["arn:aws:s3:::%s/*"
+          "Resource":["arn:aws:s3:::{s3_bucket.name}/*"
           ]
         }
       ]
     }
-    """ % s3_bucket.name
+    """
     policy = policy.strip()
 
     pol = s3_bucket.Policy()
