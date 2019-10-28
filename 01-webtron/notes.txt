@@ -1,0 +1,2 @@
+session is used to create dedicated profile "pyauto" in our case 
+so all aws service/client/resource are created on boto3 session parameter.
