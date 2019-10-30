@@ -1,3 +1,16 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+
+"""
+Webtron deploys websites in aws.
+Webtron automates the process of deploying
+static websites in s3 with cloudfront,
+DNS with Route53 and
+certificates from ACM
+"""
+
+
 import boto3
 import click
 from botocore.exceptions import ClientError
@@ -7,40 +20,51 @@ import mimetypes
 
 session = boto3.Session(profile_name='pyauto')
 s3 = session.resource('s3')
+
+
 def upload_file(s3_bucket, path, key):
+    """Upload path to s3 bucket at key."""
     content_type = mimetypes.guess_type(key)[0] or 'text/plain'
     s3_bucket.upload_file(
         path,
         key,
         ExtraArgs={
-            'ContentType': 'text/html'
+            'ContentType': content_type
         })
+
+
 @click.group()
 def cli():
-    "This script deploys websites in AWS"
+    """This script deploys websites in AWS."""
     pass
+
+
 @cli.command("list_buckets")
 def list_buckets():
-    "List all s3 buckets"
+    """List all s3 buckets."""
     for bucket in s3.buckets.all():
         print(bucket)
+
+
 @cli.command("list_bucket_objects")
 @click.argument("bucket")
 def list_bucket_objects(bucket):
-    "List bucket objects from a bucket"
+    """List bucket objects from a bucket"""
     for obj in s3.Bucket(bucket).objects.all():
         print(obj)
+
 
 @cli.command("setup_bucket")
 @click.argument("bucket")
 def setup_bucket(bucket):
-    "Create and configure s3 bucket"
+    """Create and configure s3 bucket"""
     s3_bucket = None
     try:
         s3_bucket = s3.create_bucket(
             Bucket=bucket,
-            CreateBucketConfiguration={'LocationConstraint': session.region_name}
-        )
+            CreateBucketConfiguration={
+                'LocationConstraint': session.region_name
+            })
     except ClientError as e:
         if e.response['Error']['Code'] == 'BucketAlreadyOwnedByYou':
             s3_bucket = s3.Bucket(bucket)
@@ -78,11 +102,12 @@ def setup_bucket(bucket):
 
     return
 
+
 @cli.command('sync')
 @click.argument('pathname', type=click.Path(exists=True))
 @click.argument('bucket')
 def sync(pathname, bucket):
-    "Sync contents of PATHNAME to BUCKET"
+    """Sync contents of PATHNAME to BUCKET"""
     s3_bucket = s3.Bucket(bucket)
 
     root = Path(pathname).expanduser().resolve()
@@ -97,5 +122,3 @@ def sync(pathname, bucket):
 
 if __name__ == "__main__":
     cli()
-    
-    
