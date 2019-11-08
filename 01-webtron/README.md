@@ -11,3 +11,4 @@ configure the Route53 and cloudfront as well
 - Create and configure s3 bucket
 - sync with directory
 - Not to upload files which are unchanged
+- Configure Route53 Domain
