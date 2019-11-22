@@ -15,7 +15,7 @@ from hashlib import md5
 
 class BucketManager:
     """Manage a s3 bucket"""
-        CHUNK_SIZE = 8388608
+    CHUNK_SIZE = 8388608
     def __init__(self, Session):
         """Create a BucketManager object."""
         self.session = session

@@ -35,7 +35,6 @@ dist_manager = None
 @click.group()
 @click.option('--profile', default=None,
     help="Use a given AWS profile.")
-              help="Use a given AWS profile.")
 def cli():
     """This script deploys websites in AWS."""
     global session, bucket_manager, domain_manager, cert_manager, dist_manager
