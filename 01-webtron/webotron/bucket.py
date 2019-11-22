@@ -20,7 +20,7 @@ class BucketManager:
         """Create a BucketManager object."""
         self.session = session
         self.s3 = self.session.resource('s3')
-         self.transfer_config = boto3.s3.transfer.TransferConfig(
+        self.transfer_config = boto3.s3.transfer.TransferConfig(
             multipart_chunksize=self.CHUNK_SIZE,
             multipart_threshold=self.CHUNK_SIZE
         )
