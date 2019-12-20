@@ -2,6 +2,8 @@ node_modules/
 
 config.dev.json
 
+*.ppk
+
 *.pem
 
 # Byte-compiled / optimized / DLL files
