@@ -21,10 +21,6 @@ get_ipython().run_line_magic('pwd', '')
 get_ipython().run_line_magic('ls', 'C:\\\\Users\\\\palkau\\\\Downloads\\\\*.mp4')
 get_ipython().run_line_magic('ls', 'C:\\Users\\palkau\\Downloads\\*.mp4')
 get_ipython().run_line_magic('ls', 'C:\\Users\\palkau\\Downloads\\*.mp4')
-pathname = 'C:\Users\palkau\Downloads\pexels_videos.mp4'
-pathname='C:\Users\palkau\Downloads\pexels_videos.mp4'
-pathname ='C:\Users\palkau\Downloads\pexels_videos.mp4'
-pathname = 'C:\Users\palkau\Downloads\pexels_videos.mp4'
 pathname = r'C:\Users\palkau\Downloads\pexels_videos.mp4'
 path = Path(pathname).expanduser().resolve()
 print(path)
