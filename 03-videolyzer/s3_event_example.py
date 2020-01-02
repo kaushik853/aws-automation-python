@@ -1,0 +1,9 @@
+# coding: utf-8
+{'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2019-12-31T07:42:19.740Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalIlId': 'AWS:AIDAVVSRI7DXNLSISKDPX'}, 'requestParameters': {'sourceIPAddress': '91.6.36.155'}, 'responseElements': {'x-amz-request-id': '7B5BF918F5110281', 'x-amz-id-2': 'IdKcJe1kbYM1HC4Lk/1h9YIF9YKnf5Rbwq+5KgOzRh78JAZmpag7BMH2E3VErPijRuG4jpLDDafzI='}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': '5097e485-2013-4399-a318-91798ecb542b', 'bucket': {'name': 'kaushikvideolyzerosvideos12345', 'ownerIdentity': {'principalId': 'A2Y56YRINF2VBH'}, 'arn': 'arn:aws:s3:::kaushikvideolyzervideos12345'}, 'object': {'key': 'kaushik_pexels.mp4', 'size': 4535291, 'eTag': '8a66955f8b059594de9697fe43a85d9e0b', 'sequencer': '005E0AFBD2E571D2FD'}}}]}
+event = {'Records': [{'eventVersion': '2.1', 'eventSource': 'aws:s3', 'awsRegion': 'us-east-1', 'eventTime': '2019-12-31T07:42:19.740Z', 'eventName': 'ObjectCreated:Put', 'userIdentity': {'principalIlId': 'AWS:AIDAVVSRI7DXNLSISKDPX'}, 'requestParameters': {'sourceIPAddress': '91.6.36.155'}, 'responseElements': {'x-amz-request-id': '7B5BF918F5110281', 'x-amz-id-2': 'IdKcJe1kbYM1HC4Lk/1h9YIF9YKnf5Rbwq+5KgOzRh78JAZmpag7BMH2E3VErPijRuG4jpLDDafzI='}, 's3': {'s3SchemaVersion': '1.0', 'configurationId': '5097e485-2013-4399-a318-91798ecb542b', 'bucket': {'name': 'kaushikvideolyzerosvideos12345', 'ownerIdentity': {'principalId': 'A2Y56YRINF2VBH'}, 'arn': 'arn:aws:s3:::kaushikvideolyzervideos12345'}, 'object': {'key': 'kaushik_pexels.mp4', 'size': 4535291, 'eTag': '8a66955f8b059594de9697fe43a85d9e0b', 'sequencer': '005E0AFBD2E571D2FD'}}}]}
+event
+event['Records'][0]
+event['Records'][0]['s3']['bucket']['name']
+event['Records'][0]['s3']['object']['key']
+import urllib
+urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'])
